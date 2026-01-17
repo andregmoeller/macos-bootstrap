@@ -20,6 +20,23 @@ Privileges - **Declarative system configuration** via Nix and nix-darwin
 
 ------------------------------------------------------------------------
 
+## Quick Start
+```bash
+# 1. Download the bootstrap script
+curl -O https://raw.githubusercontent.com/andregmoeller/macos-bootstrap/refs/heads/main/bootstrap-admin-macos.sh
+
+# 2. Review it (always!)
+less bootstrap-admin-macos.sh
+
+# 3. Run it
+chmod +x bootstrap-admin-macos.sh
+./bootstrap-admin-macos.sh
+```
+
+📖 For detailed documentation, see [docs/bootstrap-admin.md](docs/bootstrap-admin.md)
+
+------------------------------------------------------------------------
+
 ## Architecture Overview
 
 ### 1. Admin (Break-Glass) Account
@@ -46,7 +63,10 @@ Privileges - **Declarative system configuration** via Nix and nix-darwin
 
 ``` text
 .
-└── bootstrap-admin-macos.sh   # One-time admin bootstrap
+├── README.md
+├── bootstrap-admin-macos.sh   # One-time admin bootstrap
+└── docs/
+    └── bootstrap-admin.md     # Detailed admin bootstrap documentation
 ```
 
 ------------------------------------------------------------------------
@@ -54,17 +74,36 @@ Privileges - **Declarative system configuration** via Nix and nix-darwin
 ## Bootstrap Flow
 
 1.  Perform a **clean macOS installation**
-
 2.  Create an **admin account** during setup
-
 3.  Log in as the admin account
+4.  Run the script (see [**Quick Start**](#quick-start) above)
 
-4.  Run:
+------------------------------------------------------------------------
 
-    ``` bash
-    chmod +x bootstrap-admin-macos.sh
-    ./bootstrap-admin-macos.sh
-    ```
+## Documentation
+
+Comprehensive technical documentation:
+
+- **[docs/bootstrap-admin.md](docs/bootstrap-admin.md)** – Complete guide to the admin bootstrap process
+  - What each step does and why
+  - Security model and design decisions
+  - Configuration defaults and customization
+  - Troubleshooting and logs
+
+------------------------------------------------------------------------
+
+## Scripts
+
+### `bootstrap-admin-macos.sh`
+
+Responsibilities:
+- Install Nix (Determinate Systems)
+- Install SAP Privileges (standard localized PKG)
+- Verify PKG integrity via SHA-256
+- Configure SAP Privileges policies system-wide
+- Produce a detailed log file
+
+**Run once per system.**
 
 ------------------------------------------------------------------------
 
