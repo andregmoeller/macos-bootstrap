@@ -1,0 +1,29 @@
+# --- macOS System Files ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Logs ---
+# Ignores script logs (z.B. bootstrap-admin-2024....log)
+*.log
+
+# --- Nix ---
+# Nix build symlinks
+result
+result-*
+# Direnv
+.direnv/
+.envrc
+
+# --- Shell / Editor ---
+# History files
+.bash_history
+.zsh_history
+# Editor Configs (VS Code, JetBrains, etc.)
+.vscode/
+.idea/
+*.swp
+*~
